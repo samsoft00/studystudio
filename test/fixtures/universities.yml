@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  site: MyString
+  logo: MyString
+  portal: MyString
+  subdomain: MyString
+
+two:
+  name: MyString
+  site: MyString
+  logo: MyString
+  portal: MyString
+  subdomain: MyString

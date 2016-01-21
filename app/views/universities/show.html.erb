@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @university.name %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @university.site %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @university.logo %>
+</p>
+
+<p>
+  <strong>Portal:</strong>
+  <%= @university.portal %>
+</p>
+
+<p>
+  <strong>Subdomain:</strong>
+  <%= @university.subdomain %>
+</p>
+
+<%= link_to 'Edit', edit_university_path(@university) %>
