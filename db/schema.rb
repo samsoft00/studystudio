@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122050420) do
+ActiveRecord::Schema.define(version: 20160122123902) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -85,11 +85,21 @@ ActiveRecord::Schema.define(version: 20160122050420) do
     t.string   "last_name",              limit: 255
     t.string   "title",                  limit: 255
     t.text     "bio",                    limit: 65535
+    t.integer  "token_id",               limit: 4
+    t.string   "avatar_id",              limit: 255
   end
 
   add_index "lecturers", ["email"], name: "index_lecturers_on_email", unique: true, using: :btree
   add_index "lecturers", ["reset_password_token"], name: "index_lecturers_on_reset_password_token", unique: true, using: :btree
+  add_index "lecturers", ["token_id"], name: "index_lecturers_on_token_id", using: :btree
   add_index "lecturers", ["username"], name: "index_lecturers_on_username", using: :btree
+
+  create_table "tokens", force: :cascade do |t|
+    t.string   "token",      limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "universities", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -104,4 +114,5 @@ ActiveRecord::Schema.define(version: 20160122050420) do
   add_foreign_key "courses", "lecturers"
   add_foreign_key "departments", "faculties"
   add_foreign_key "faculties", "universities"
+  add_foreign_key "lecturers", "tokens"
 end

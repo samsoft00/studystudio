@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 	  	
 	  	if params[:action] == 'update'
 				
-				devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:title, :username, :first_name, :last_name, :email, :password, :password_confirmation) }
+				devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:title, :username, :first_name, :last_name, :bio, :avatar, :email, :password, :password_confirmation, :current_password) }
 
 	  	elsif params[:action] == 'create'
 	  			
@@ -16,6 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 	  end	
 
-	end
+	end 
+
 
 end
