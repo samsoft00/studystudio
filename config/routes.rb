@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     get '/' => 'lecturer_home#index'
     
     devise_for :lecturers, :controllers => { :registrations => "registrations" }
-
+    
+    devise_for :admins
+    
     resources :courses
   end
 
