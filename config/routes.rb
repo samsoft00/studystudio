@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     
     devise_for :lecturers, :controllers => { :registrations => "registrations" }
     
+    #Namespace this
     devise_for :admins
     
     resources :courses
