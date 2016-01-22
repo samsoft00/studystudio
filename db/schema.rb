@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121132247) do
+ActiveRecord::Schema.define(version: 20160122042036) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "code",        limit: 255
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.string   "thumbnail",   limit: 255
+    t.boolean  "publish"
+    t.string   "slug",        limit: 255
+    t.integer  "lecturer_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "courses", ["lecturer_id"], name: "index_courses_on_lecturer_id", using: :btree
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "department_name", limit: 255
+    t.integer  "faculty_id",      limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "departments", ["faculty_id"], name: "index_departments_on_faculty_id", using: :btree
+
+  create_table "faculties", force: :cascade do |t|
+    t.string   "faculty_name",  limit: 255
+    t.integer  "university_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "faculties", ["university_id"], name: "index_faculties_on_university_id", using: :btree
 
   create_table "lecturers", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -51,4 +83,7 @@ ActiveRecord::Schema.define(version: 20160121132247) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "courses", "lecturers"
+  add_foreign_key "departments", "faculties"
+  add_foreign_key "faculties", "universities"
 end

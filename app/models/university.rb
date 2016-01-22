@@ -6,6 +6,8 @@ class University < ActiveRecord::Base
 	validates :subdomain, uniqueness: true
 	validates :name, :site, :logo, :portal, :subdomain, presence: true
 
+	has_many :faculty
+
 	private
 
 	def create_tenant

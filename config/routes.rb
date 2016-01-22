@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   constraints SubdomainConstraint do
     #something here
     get '/' => 'lecturer_home#index'
+    
     devise_for :lecturers, :controllers => { :registrations => "registrations" }
+
+    resources :courses
   end
 
   root 'pages#index'  
