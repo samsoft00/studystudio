@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122123902) do
+ActiveRecord::Schema.define(version: 20160123115331) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -94,6 +94,20 @@ ActiveRecord::Schema.define(version: 20160122123902) do
   add_index "lecturers", ["token_id"], name: "index_lecturers_on_token_id", using: :btree
   add_index "lecturers", ["username"], name: "index_lecturers_on_username", using: :btree
 
+  create_table "materials", force: :cascade do |t|
+    t.string   "material_name", limit: 255
+    t.string   "material_file", limit: 255
+    t.string   "description",   limit: 255
+    t.boolean  "monetize"
+    t.integer  "amount",        limit: 4
+    t.boolean  "save_status"
+    t.integer  "course_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "materials", ["course_id"], name: "index_materials_on_course_id", using: :btree
+
   create_table "tokens", force: :cascade do |t|
     t.string   "token",      limit: 255
     t.boolean  "status"
@@ -115,4 +129,5 @@ ActiveRecord::Schema.define(version: 20160122123902) do
   add_foreign_key "departments", "faculties"
   add_foreign_key "faculties", "universities"
   add_foreign_key "lecturers", "tokens"
+  add_foreign_key "materials", "courses"
 end

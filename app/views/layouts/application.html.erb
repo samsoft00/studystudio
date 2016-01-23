@@ -75,7 +75,14 @@
       <div class="container">
         <ul class="nav nav-tabs">
           <li role="presentation" class="active"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">Courses</a></li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Courses<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li role="presentation"><%= link_to('Courses', courses_path, title: "Courses") %></li>
+              <li role="presentation"><%= link_to('New Course', new_course_path, title: "New Course") %></li>
+            </ul>
+          </li>
           <li role="presentation"><a href="#">Profile</a></li> 
           <!--
           <ul class="nav nav-tabs navbar-right">

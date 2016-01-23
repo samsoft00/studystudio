@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material name:</strong>
+  <%= @material.material_name %>
+</p>
+
+<p>
+  <strong>Material file:</strong>
+  <%= @material.material_file %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @material.description %>
+</p>
+
+<p>
+  <strong>Monetize:</strong>
+  <%= @material.monetize %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @material.amount %>
+</p>
+
+<p>
+  <strong>Save status:</strong>
+  <%= @material.save_status %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @material.course %>
+</p>
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>

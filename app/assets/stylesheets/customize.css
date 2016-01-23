@@ -1,0 +1,9 @@
+.course-action-btn li{
+	list-style-type: none;
+	display: inline-block;
+	padding-top: 10px;
+}
+
+.course-action-panel >.panel-body {
+    padding: 5px;
+}

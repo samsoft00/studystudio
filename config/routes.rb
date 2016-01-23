@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     #Namespace this
     # devise_for :admins
     
-    resources :courses
+    resources :courses do
+      resources :materials
+    end
+    
   end
 
   root 'pages#index'  
