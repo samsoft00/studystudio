@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-	before_action :configure_devise_permitted_parameters, if :devise_controller?
+	before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
 	private
 
@@ -16,7 +16,8 @@ class RegistrationsController < Devise::RegistrationsController
 
 	  end	
 
-	end 
-
+	def lecturer_params
+	  params.require(:lecturer).permit(:avatar)
+	end
 
 end

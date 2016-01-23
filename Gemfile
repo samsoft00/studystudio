@@ -13,9 +13,9 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 # gem "paperclip", "~> 4.3"
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
-gem "refile-s3"
+gem 'refile', '~> 0.6.2', require: "refile/rails"
+gem 'refile-mini_magick', '~> 0.2.0'
+gem 'refile-s3', '~> 0.2.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

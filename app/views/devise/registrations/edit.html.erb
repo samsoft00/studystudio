@@ -40,11 +40,11 @@
             --> 
             <div class="form-group">
               <%= f.label :avatar, "Add or Upload New Avatar" %>
-              <%= f.attachment_field :avatar, class: "form-control" %>
+              <%= f.attachment_field :avatar %>
             </div>                                
             <div class="form-group">
               <%= f.label :bio, "About Me" %> <i>(<%= t('.max_words', :default => "Max 250 words") %>)</i>
-              <%= f.text_area :bio, class: "form-control", size: '50x10' %>
+              <%= f.text_area_tag(:bio, :bio, size: '50x10', class: 'form-control') %>
             </div>
             <!--
             <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary" %>
@@ -58,7 +58,7 @@
           <h4><%= t('.title', :resource => resource_class.model_name.human , :default => "Edit #{resource_name.to_s.humanize}") %></h4>
         </div>
         <div class="panel-body">
-            <%= image_tag attachment_url(current_lecturer, :avatar, :fill, 300, 300, format: "jpg") %>
+            <%= image_tag attachment_url(@lecturer, :avatar, :fill, 300, 300, format: "jpg") %>
             <div class="form-group">
               <%= f.label :email %>
               <%= f.email_field :email,disabled: "disabled",  autofocus: true, class: "form-control" %>
